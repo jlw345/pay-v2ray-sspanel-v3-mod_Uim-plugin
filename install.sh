@@ -165,6 +165,17 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
 
+
+    echo "Which docker image address will u use"
+    read -p "(image address (Default ):" docker_addresss
+    [ -z "${docker_addresss}" ] && docker_addresss=""
+    echo
+    echo "---------------------------"
+    echo "docker_addresss = ${docker_addresss}"
+    echo "---------------------------"
+    echo
+
+
     if [ "${v2ray_usemysql}" -eq 0 ];
         then
       # Set ssrpanel_url
@@ -332,6 +343,7 @@ config_docker(){
     install_dependencies
     echo "Writing docker-compose.yml"
     curl -L https://raw.githubusercontent.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/V2ray/docker-compose.yml > docker-compose.yml
+    sed -i "s|xxx/xxx:xxx|${docker_addresss}|"  ./docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
@@ -361,6 +373,7 @@ config_caddy_docker(){
     curl -L https://raw.githubusercontent.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >  Caddyfile
     echo "Writing docker-compose.yml"
     curl -L https://raw.githubusercontent.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml > docker-compose.yml
+    sed -i "s|xxx/xxx:xxx|${docker_addresss}|"  ./docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
@@ -396,6 +409,7 @@ config_caddy_docker_cloudflare(){
     curl -L https://raw.githubusercontent.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >Caddyfile
     epcho "Writing docker-compose.yml"
     curl -L https://raw.githubusercontent.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml >docker-compose.yml
+    sed -i "s|xxx/xxx:xxx|${docker_addresss}|"  ./docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
