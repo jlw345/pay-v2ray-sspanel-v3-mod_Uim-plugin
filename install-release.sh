@@ -488,7 +488,7 @@ installV2Ray(){
         fi
         if [ ! -z "${CacheDurationSec}" ]
         then
-                sed -i "s|\"cache_duration_sec\": 0|\"cache_duration_sec\": ${CacheDurationSec}|g" "/etc/v2ray/config.json"
+                sed -i "s|\"cache_duration_sec\": 120|\"cache_duration_sec\": ${CacheDurationSec}|g" "/etc/v2ray/config.json"
                 colorEcho ${BLUE} "CacheDurationSec:${CacheDurationSec}"
 
         fi
