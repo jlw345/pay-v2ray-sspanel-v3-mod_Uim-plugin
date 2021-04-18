@@ -125,6 +125,15 @@
     },
     {
       "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "blockedport"
+    },
+    {
+      "protocol": "blackhole",
       "settings": {},
       "tag": "block"
     }
