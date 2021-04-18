@@ -125,6 +125,15 @@
     },
     {
       "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "blockedport"
+    },
+    {
+      "protocol": "blackhole",
       "settings": {},
       "tag": "block"
     }
@@ -174,8 +183,8 @@
     "mu_regex":  "%5m%id.%suffix",
     "mu_suffix": "microsoft.com",
     "mysql": {
-      "host": "0.0.0.0",
-      "port": 3306,
+      "host": "*",
+      "port": *,
       "user": "*",
       "password": "*",
       "dbname": "*"
@@ -184,9 +193,6 @@
     "usemysql": 1,
     "cf_key": "bbbbbbbbbbbbbbbbbb",
     "cf_email": "v2ray@v2ray.com",
-    "cf_token": "679asdf",
-    "cf_accound_id": "asdf1234",
-    "cf_zone_id": "owieur123",
     "proxy_tcp": 0,
     "ali_key": "sdfsdfsdfljlbjkljlkjsdfoiwje",
     "ali_secret": "jlsdflanljkljlfdsaklkjflsa",
